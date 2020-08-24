@@ -1,0 +1,82 @@
+.list-hot {
+  position: relative;
+  padding-bottom: 65px;
+
+  &::after {
+    position: absolute;
+    top: 0;
+    right: 50%;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    content: "";
+    background: $primary;
+    opacity: 0.1;
+  }
+
+  .list {
+    margin: 175px 0 100px;
+
+    @include media-down(sm) {
+      margin: 0 0 100px;
+    }
+
+    .col-xl-4 {
+      padding: 0;
+
+      &:not(:last-child) {
+        padding-right: 30px;
+
+        @include media-down(lg) {
+          padding: 15px;
+        }
+      }
+
+      @include media-down(lg) {
+        padding: 15px;
+      }
+    }
+
+    &-item {
+      width: 100%;
+      background: $white;
+      box-shadow: 1px 2px 5px 2px rgba(0, 0, 0, 0.15);
+
+      .list-pic {
+        padding: 20px;
+      }
+
+      @at-root .list-btns .btn {
+        width: 100%;
+        padding: 10px 0;
+        margin: 10px 0;
+      }
+    }
+
+    &-pic {
+      display: flex;
+      justify-content: center;
+    }
+
+    &-content {
+      padding: 0 20px 20px 20px;
+      font-weight: 700;
+      color: $primary;
+
+      h3 {
+        font-size: 24px;
+      }
+
+      p {
+        font-size: 18px;
+      }
+    }
+  }
+
+  .btn {
+    @include media-down(sm) {
+      width: 100%;
+      padding: 10px 0;
+    }
+  }
+}

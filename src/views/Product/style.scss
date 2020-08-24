@@ -1,0 +1,30 @@
+.product-details {
+  &-pic {
+    text-align: center;
+  }
+
+  &-price {
+    display: flex;
+
+    span {
+      line-height: 30px;
+    }
+  }
+
+  &-count {
+    display: flex;
+    width: 20%;
+  }
+
+  &-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    border-bottom: 3px solid $primary;
+
+    h1 {
+      font-size: 48px;
+    }
+  }
+}

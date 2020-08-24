@@ -1,0 +1,52 @@
+.step {
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+  margin: 0;
+
+  &-item {
+    position: relative;
+    flex: 1;
+
+    &:last-child {
+      flex: 0;
+    }
+
+    &::before {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 50px;
+      height: 3px;
+      margin: auto;
+      content: "";
+      background: $primary;
+    }
+
+    .round {
+      width: 50px;
+      height: 50px;
+      line-height: 50px;
+      color: $white;
+      text-align: center;
+      background: $primary;
+      border: 1px solid $primary;
+      border-radius: 50%;
+    }
+
+    &.active .round {
+      color: $white;
+      background: $primary;
+    }
+
+    &.active ~ li .round {
+      color: $primary;
+      background: #fff;
+    }
+
+    &.active ~ li::before {
+      background: #ccc;
+    }
+  }
+}

@@ -1,0 +1,174 @@
+.nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transition: opacity 0.5s;
+
+  @include media-up(lg) {
+    flex-flow: row nowrap;
+  }
+
+  &-collapse {
+    display: flex;
+
+    @include media-down(md) {
+      flex-basis: 100%;
+      align-items: center;
+    }
+  }
+
+  &-btn {
+    display: none;
+
+    @include media-down(md) {
+      display: block;
+    }
+  }
+
+  &-menu {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    transition: all 1s;
+
+    @include media-up(md) {
+      flex-direction: row;
+    }
+
+    @include media-down(md) {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 0;
+    }
+
+    &.active {
+      @include media-down(md) {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+
+    &-item {
+      display: block;
+
+      @include media-down(md) {
+        border-top: 1px solid $primary;
+      }
+
+      a {
+        display: block;
+        padding: 38px 30px;
+        font-weight: 700;
+        color: $black;
+        transition: 0.2s;
+
+        @include media-down(md) {
+          padding: 15px;
+        }
+
+        &.router-link-exact-active {
+          color: $primary;
+        }
+
+        &:hover {
+          color: $primary;
+
+          @include media-down(md) {
+            color: $primary;
+            background: rgba(0, 0, 0, 0.1);
+          }
+        }
+
+        &.active {
+          @include media-down(sm) {
+            color: $black;
+          }
+        }
+      }
+    }
+
+    &-icon {
+      position: relative;
+      z-index: 1040;
+      width: 32px;
+      height: 30px;
+      padding: map-get($spacers, 4);
+      margin: auto;
+      margin-right: 20px;
+      cursor: pointer;
+      background: transparent;
+      transform: translate(0%, 0%);
+
+      @include media-up(lg) {
+        display: none;
+      }
+
+      &.active span {
+        background: transparent;
+        box-shadow: 0 2px 2px rgba(0, 0, 0, 0);
+
+        &::before {
+          top: 0;
+          transition-delay: 0s, 0.5s;
+          transform: rotate(45deg);
+        }
+
+        &::after {
+          top: 0;
+          transition-delay: 0s, 0.5s;
+          transform: rotate(-45deg);
+        }
+      }
+
+      > span {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        display: block;
+        width: 30px;
+        height: 4px;
+        cursor: pointer;
+        background: $primary;
+        box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+        transition: 0.2s;
+        transform: translate(-50%, -50%);
+
+        &::before {
+          position: absolute;
+          top: -10px;
+          left: 0;
+          display: block;
+          width: 100%;
+          height: 100%;
+          content: "";
+          background: $primary;
+          box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+          transition-duration: 0.5s, 0.5s;
+        }
+
+        &::after {
+          position: absolute;
+          top: 10px;
+          left: 0;
+          display: block;
+          width: 100%;
+          height: 100%;
+          content: "";
+          background: $primary;
+          box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+          transition-duration: 0.5s, 0.5s;
+        }
+      }
+    }
+  }
+}

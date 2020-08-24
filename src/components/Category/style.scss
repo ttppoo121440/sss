@@ -1,0 +1,36 @@
+div:focus {
+  outline: none;
+}
+
+.category {
+  .slick-prev::before,
+  .slick-next::before {
+    color: $primary;
+  }
+
+  .slick-prev {
+    left: -25px;
+  }
+
+  .slick-next {
+    right: -25px;
+  }
+
+  &-item {
+    .btn {
+      color: #e1e1e1;
+      border: 2px solid #e1e1e1;
+
+      &.active {
+        color: $primary;
+        border: 2px solid $primary;
+      }
+
+      @include media-down(sm) {
+        padding: 10px;
+        font-size: 16px;
+        font-weight: normal;
+      }
+    }
+  }
+}

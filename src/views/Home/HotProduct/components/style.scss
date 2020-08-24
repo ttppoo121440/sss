@@ -1,0 +1,25 @@
+div:focus {
+  outline: none;
+}
+
+.slick-prev::before,
+.slick-next::before {
+  color: $primary;
+}
+
+.slick-prev,
+.slick-next {
+  z-index: 100;
+}
+
+.slick-prev {
+  @include media-down(sm) {
+    left: -10px;
+  }
+}
+
+.slick-next {
+  @include media-down(sm) {
+    right: -10px;
+  }
+}
